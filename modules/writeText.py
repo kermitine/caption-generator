@@ -1,7 +1,7 @@
 from moviepy import VideoFileClip, TextClip, CompositeVideoClip
 import os, pysrt
 from datetime import datetime as dt
-from .videoSize import get_video_dimensions
+from modules.videoSize import get_video_dimensions
 
 os.environ["IMAGEIO_FFMPEG_EXE"] = r"C:\path\to\ffmpeg.exe"  # make sure this points to ffmpeg.exe
 
@@ -31,7 +31,7 @@ def add_caption_overlay(video_path, srt_path):
             text=caption_text,
             method="caption",           # wrap to width
             size=(text_width, None),    # width fixed, height auto
-            font="LibertinusMath.otf",
+            font="fonts/LibertinusMath.otf",
             font_size=60,
             color="white",
             stroke_color="black",       # better readability
