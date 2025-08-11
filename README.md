@@ -1,4 +1,4 @@
-# tiktok-caption-generator-fix
+# caption-generator
 improved version of of lernEarnBern's Tiktok-Caption-Generator
 
 # usage
