@@ -7,7 +7,5 @@ import caption_generator.py, and create an instance of Caption_Generator(). Exam
 the add_captions() method only takes 2 arguments. The path of the file you want to add captions to, and the name of the file (used for exporting.) That's it!
 
 ```from folder.caption_generator import caption_generator
-
 Caption_Generator = Caption_Generator()
-
 Caption_Generator.add_captions('input/test_clip_shortened.mp4', 'test_clip_shortened')```
