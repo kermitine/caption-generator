@@ -2,7 +2,7 @@
 improved version of of lernEarnBern's Tiktok-Caption-Generator
 
 # usage
-import main.py, and create an instance of Caption_Generator(). Example code below.
+import caption_generator.py, and create an instance of Caption_Generator(). Example code below.
 
 the add_captions() method only takes 2 arguments. The path of the file you want to add captions to, and the name of the file (used for exporting.) That's it!
 
