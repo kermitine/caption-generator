@@ -45,7 +45,7 @@ def add_caption_overlay(video_path, srt_path):
             method="caption",           # wrap to width
             size=(text_width, None),    # width fixed, height auto
             font=FONT_SPEC,
-            font_size=60,
+            font_size=30,
             color="white",
             stroke_color="black",       # better readability
             stroke_width=2,
