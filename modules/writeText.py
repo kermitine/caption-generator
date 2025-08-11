@@ -1,7 +1,7 @@
 from moviepy import VideoFileClip, TextClip, CompositeVideoClip
 import os, pysrt
 from datetime import datetime as dt
-from modules.videoSize import get_video_dimensions
+from .videoSize import get_video_dimensions
 
 os.environ["IMAGEIO_FFMPEG_EXE"] = r"C:\path\to\ffmpeg.exe"  # make sure this points to ffmpeg.exe
 

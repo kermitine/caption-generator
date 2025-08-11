@@ -1,5 +1,5 @@
-from modules.captions import transcribe_audio
-from modules.writeText import add_caption_overlay
+from .modules.captions import transcribe_audio
+from .modules.writeText import add_caption_overlay
 
 
 class Caption_Generator():
@@ -12,7 +12,3 @@ class Caption_Generator():
         add_caption_overlay(file_path, f'srtFiles/{file_name}.srt')
 
         print('\n\nVideo Complete')
-
-
-Caption_Generator = Caption_Generator()
-Caption_Generator.add_captions('input/test_clip_shortened.mp4', 'test_clip_shortened')
