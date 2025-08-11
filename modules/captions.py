@@ -2,6 +2,7 @@ import os
 import math
 import whisper
 from datetime import datetime, timedelta
+from pathlib import Path
 
 def _chunks_by_words(words, max_words):
     for i in range(0, len(words), max_words):
@@ -26,6 +27,15 @@ def transcribe_audio(
     Create an SRT with shorter, faster-updating captions by splitting each Whisper segment
     into word-limited chunks and distributing the segment's time window across those chunks.
     """
+
+    # SRTFIX here
+
+    HERE = Path(__file__).resolve().parent      # folder of this .py file
+    ROOT = HERE.parent                          # one directory back
+    srt_dir = ROOT / "SrtFiles"
+
+
+
     # Load whisper
     model = whisper.load_model(model_size)
     print("Whisper model loaded.")

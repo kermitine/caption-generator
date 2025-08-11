@@ -2,8 +2,21 @@ from moviepy import VideoFileClip, TextClip, CompositeVideoClip
 import os, pysrt
 from datetime import datetime as dt
 from .videoSize import get_video_dimensions
+from pathlib import Path
 
 os.environ["IMAGEIO_FFMPEG_EXE"] = r"C:\path\to\ffmpeg.exe"  # make sure this points to ffmpeg.exe
+
+# modules/writeText.py  ->  ../fonts/LibertinusMath.otf
+PKG_DIR   = Path(__file__).resolve().parent          # .../caption_generator/modules
+FONT_PATH = (PKG_DIR.parent / "fonts" / "LibertinusMath.otf")
+
+# ImageMagick on Windows prefers forward slashes:
+FONT_SPEC = FONT_PATH.as_posix()
+
+if not FONT_PATH.exists():
+    # optional: graceful fallback if the font file isn't found
+    FONT_SPEC = "Libertinus Math"   # or any installed font name
+
 
 def add_caption_overlay(video_path, srt_path):
     video_filename = os.path.splitext(os.path.basename(video_path))[0]
@@ -31,7 +44,7 @@ def add_caption_overlay(video_path, srt_path):
             text=caption_text,
             method="caption",           # wrap to width
             size=(text_width, None),    # width fixed, height auto
-            font="fonts/LibertinusMath.otf",
+            font=FONT_SPEC,
             font_size=60,
             color="white",
             stroke_color="black",       # better readability
@@ -53,4 +66,4 @@ def add_caption_overlay(video_path, srt_path):
         clips.append(txt)
 
     final = CompositeVideoClip([video] + clips).with_duration(video.duration)
-    final.write_videofile(f"output/{video_filename}.mp4")
+    final.write_videofile(f"output/{video_filename}_subbed.mp4")
