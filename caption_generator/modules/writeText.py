@@ -28,7 +28,7 @@ def add_caption_overlay(video_path, srt_path):
 
     clips = []
     margin = 80         # distance from bottom
-    text_width = vw - 160  # leave side margins so wrapping looks good
+    text_width = vw - 100  # leave side margins so wrapping looks good
 
     for caption in subs:
         start_dt = dt.combine(reference_date, caption.start.to_time())
